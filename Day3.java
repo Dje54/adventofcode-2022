@@ -26,7 +26,6 @@ public class Day3 {
 	
 	private void init() {
 		try (Scanner scanner = new Scanner(new File("bin\\input\\" + INPUT_FILE))) {
-			List<Integer> l = new ArrayList<>();
 			while(scanner.hasNext()) {
 				lSac.add(scanner.nextLine());
 			}
