@@ -17,15 +17,18 @@ public class Day5 {
 		init();
 		resolve1();
 		writeResult();
+		init();
 		resolve2();
 		writeResult();
 	}
 	
 	String result;
-	List<String>[] lInput = new ArrayList[9];
-	List<int[]> lMove = new ArrayList<>(); 
+	List<String>[] lInput;
+	List<int[]> lMove; 
 	
 	private void init() {
+		lInput = new ArrayList[9];
+		 lMove = new ArrayList<>();
 		try (Scanner scanner = new Scanner(new File("bin\\input\\" + INPUT_FILE))) {
 			String s;
 			for (int i = 0 ; i< 9 ; i++) {
@@ -63,7 +66,7 @@ public class Day5 {
 		result = "";
 		for (int[] move : lMove) {
 			for (int i=0 ; i<move[0] ; i++ ) {
-				lInput[move[2]].add(0, lInput[move[1]].remove(move[0]-1-i));
+				lInput[move[2]].add(0, lInput[move[1]].remove(0));
 			}
 		}
 		for (List<String> pile : lInput) {
@@ -73,7 +76,14 @@ public class Day5 {
 	
 	private void resolve2() {
 		result = "";
-		
+		for (int[] move : lMove) {
+			for (int i=0 ; i<move[0] ; i++ ) {
+				lInput[move[2]].add(0, lInput[move[1]].remove(move[0]-1-i));
+			}
+		}
+		for (List<String> pile : lInput) {
+			result += pile.get(0);
+		}
 	}
 	
 	private void writeResult() {
