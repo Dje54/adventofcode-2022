@@ -17,7 +17,6 @@ public class Day6 {
 		init();
 		resolve1();
 		writeResult();
-		init();
 		resolve2();
 		writeResult();
 	}
